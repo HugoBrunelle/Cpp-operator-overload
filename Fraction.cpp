@@ -3,12 +3,15 @@
 #include <iostream>
 #include "Fraction.h"
 
+// =================== Constructor ===================
 
 Fraction::Fraction(int num, int den) {
   m_numerator = num;
   m_denominator = den;
   m_value = num / den;
 }
+
+// ===================== Methods =====================
 
 void Fraction::show(std::ostream& os) const {
   if (m_denominator == 1) {
@@ -90,6 +93,8 @@ Fraction& Fraction::operator/=(Fraction const& a) {
   return *this;
 }
 
+// ============  Arithmetic operator overload ============
+
 Fraction operator+(Fraction const& a, Fraction const& b) {
   return a.plus(b);
 }
@@ -105,6 +110,8 @@ Fraction operator*(Fraction const& a, Fraction const& b) {
 Fraction operator/(Fraction const& a, Fraction const& b) {
   return a.divide(b);
 }
+
+// =============== Logic operator overload ===============
 
 bool operator<(Fraction const& a, Fraction const& b) {
   return a.lowerThan(b);
@@ -129,6 +136,8 @@ bool operator==(Fraction const& a, Fraction const& b) {
 bool operator!=(Fraction const& a, Fraction const& b) {
   return !a.Equal(b);
 }
+
+// ============== Stream operator overload ===============
 
 std::ostream& operator<<(std::ostream& os, Fraction const& fraction) {
   fraction.show(os);
